@@ -1,6 +1,6 @@
 {
   "appId": "com.offline.f1dotracer",
-  "appName": "F1 Dot Racer",
+  "appName": "GPDot",
   "webDir": "www",
   "bundledWebRuntime": false
 }

@@ -1,7 +1,7 @@
 {
   "name": "gpdot",
   "version": "1.0.0",
-  "description": "Standalone F1 Dot Racer offline simulator",
+  "description": "Standalone dot racing offline simulator",
   "main": "index.js",
   "scripts": {
     "build": "echo 'No web build step required: copying index.html from www/'",

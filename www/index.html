@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GPDot - Enhanced Racing Simulator v2.1</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg-color: #0b0c10;
+      --panel-bg: rgba(31, 40, 51, 0.4);
+      --panel-border: #2c3540;
+      --card-bg: rgba(0, 0, 0, 0.4);
+      --text-color: #c5c6c7;
+      --text-white: #ffffff;
+      --primary-cyan: #66fcf1;
+      --primary-cyan-hover: #45a29e;
+      --f1-red: #e10600;
+      --f1-red-hover: #b30500;
+      --dark-btn-bg: #1f2833;
+      --dark-btn-hover: #2c3540;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --yellow: #ffd700;
+      --orange: #ff8c00;
+      --danger: #ff4444;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) {
+      .grid-3 {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-center { justify-content: center; }
+    .gap-2 { gap: 8px; }
+    .gap-3 { gap: 12px; }
+    .gap-4 { gap: 16px; }
+    .hidden { display: none !important; }
+
+    header {
+      background-color: rgba(31, 40, 51, 0.4);
+      border-bottom: 1px solid var(--panel-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-badge {
+      background-color: var(--f1-red);
+      color: var(--text-white);
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 2px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transform: skewX(-12deg);
+      display: inline-block;
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text-white);
+      margin-left: 8px;
+    }
+
+    .btn {
+      font-family: var(--font-family);
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .btn-primary {
+      background-color: var(--primary-cyan);
+      color: var(--bg-color);
+      box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-cyan-hover);
+    }
+    .btn-secondary {
+      background-color: var(--dark-btn-bg);
+      color: var(--text-white);
+      border: 1px solid var(--panel-border);
+    }
+    .btn-secondary:hover {
+      background-color: var(--dark-btn-hover);
+    }
+    .btn-danger {
+      background-color: rgba(225, 6, 0, 0.2);
+      color: var(--text-white);
+      border: 1px solid rgba(225, 6, 0, 0.4);
+    }
+    .btn-danger:hover {
+      background-color: var(--f1-red);
+    }
+    .btn-icon {
+      background-color: var(--dark-btn-bg);
+      color: var(--text-color);
+      border: 1px solid var(--panel-border);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-icon:hover {
+      color: var(--text-white);
+      background-color: var(--dark-btn-hover);
+    }
+
+    .panel {
+      background: linear-gradient(135deg, rgba(31, 40, 51, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .panel::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 250px;
+      height: 250px;
+      background-color: rgba(102, 252, 241, 0.03);
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .card-small {
+      background-color: var(--card-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .hero-label {
+      color: var(--primary-cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .hero-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .hero-desc {
+      color: #8f96a3;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+    .stat-lbl {
+      font-size: 11px;
+      color: #8f96a3;
+      margin-top: 4px;
+    }
+
+    .track-preview-box {
+      background-color: rgba(31, 40, 51, 0.3);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .track-list-scrollable {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-height: 256px;
+      overflow-y: auto;
+      padding

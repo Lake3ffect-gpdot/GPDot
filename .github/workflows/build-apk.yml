@@ -2,7 +2,7 @@ name: Build Standing GPDot APK
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
   workflow_dispatch:
 
 jobs:
@@ -16,17 +16,17 @@ jobs:
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-id: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "yarn"
 
       - name: Install Project Dependencies
-        run: npm ci
+        run: yarn install
 
       - name: Setup Java JDK 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
-          java-version: '17'
+          distribution: "zulu"
+          java-version: "17"
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -37,8 +37,7 @@ jobs:
           npx cap add android
 
       - name: Copy and Sync Web Assets
-        run: |
-          npx cap sync android
+        run: npx cap sync android
 
       - name: Build Android APK (Debug Mode)
         run: |

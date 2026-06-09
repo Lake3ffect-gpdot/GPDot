@@ -225,7 +225,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-t: 1px solid rgba(255, 255, 255, 0.05);
       text-align: center;
     }
     .stat-val {
@@ -251,4 +251,1804 @@
       gap: 12px;
       max-height: 256px;
       overflow-y: auto;
-      padding
+      padding-right: 6px;
+    }
+    .track-item {
+      padding: 12px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .track-item:hover {
+      border-color: var(--primary-cyan);
+    }
+    .track-item-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100px;
+    }
+
+    .slider-group {
+      margin-bottom: 20px;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #8f96a3;
+      margin-bottom: 8px;
+    }
+    .slider-header span.val {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #1f2833;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .team-card {
+      background-color: rgba(31, 40, 51, 0.3);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .input-text {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: var(--text-white);
+      border: 1px solid var(--panel-border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      width: 100%;
+      outline: none;
+    }
+    .input-text:focus {
+      border-color: var(--primary-cyan);
+    }
+
+    .race-hud-top {
+      background-color: rgba(31, 40, 51, 0.2);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .lap-counter-box {
+      background-color: #1f2833;
+      border-radius: 12px;
+      padding: 8px 12px;
+      text-align: center;
+      min-width: 70px;
+    }
+    .lap-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #8f96a3;
+      font-weight: 700;
+    }
+    .lap-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+    .start-lights {
+      display: flex;
+      gap: 8px;
+    }
+    .start-light-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #1a1a1a;
+      border: 2px solid #333;
+    }
+    .start-light-dot.active {
+      background-color: #00ff00;
+      box-shadow: 0 0 15px #00ff00;
+    }
+    .sim-speed-selector {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--panel-border);
+      display: flex;
+      gap: 4px;
+    }
+    .speed-btn {
+      background: transparent;
+      border: none;
+      color: #8f96a3;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .speed-btn.active {
+      background-color: var(--primary-cyan);
+      color: var(--bg-color);
+    }
+    .canvas-container {
+      background-color: #14161d;
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .live-feed-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      color: #8f96a3;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-feed-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #00ff00;
+      border-radius: 50%;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { opacity: 0.4; } to { opacity: 1; }
+    }
+    #race-canvas, #qualifying-canvas {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+    }
+
+    .timings-panel {
+      background-color: rgba(31, 40, 51, 0.2);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      height: 420px;
+    }
+    @media (min-width: 1024px) {
+      .timings-panel {
+        height: 550px;
+      }
+    }
+    .timings-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #1f2833;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .timings-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-white);
+    }
+    .timer-display {
+      font-family: monospace;
+      color: #8f96a3;
+      font-size: 12px;
+    }
+    .table-headers {
+      display: grid;
+      grid-template-columns: 2fr 5fr 3fr 2fr;
+      font-size: 10px;
+      font-weight: 700;
+      color: #555c68;
+      text-transform: uppercase;
+      padding: 0 8px 6px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .leaderboard-rows {
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+    .row-item {
+      display: grid;
+      grid-template-columns: 2fr 5fr 3fr 2fr;
+      align-items: center;
+      padding: 8px;
+      font-family: monospace;
+      font-size: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+    }
+    .row-color-pill {
+      width: 6px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-left: 6px;
+    }
+
+    .podium-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px 0;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .podium-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+    }
+    .podium-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 11px;
+      background-color: #111;
+      color: var(--text-white);
+    }
+    .podium-name {
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .podium-block {
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .weather-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--panel-border);
+    }
+    .incident-alert {
+      background-color: rgba(255, 68, 68, 0.15);
+      border-left: 3px solid var(--danger);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .safety-car-alert {
+      background-color: rgba(255, 198, 0, 0.2);
+      border-left: 3px solid var(--yellow);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      animation: slideIn 0.3s ease;
+      font-weight: 700;
+    }
+
+    .points-badge {
+      display: inline-block;
+      background-color: var(--primary-cyan);
+      color: var(--bg-color);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .tire-wear-bar {
+      width: 100%;
+      height: 3px;
+      background-color: #1a1a1a;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .tire-wear-fill {
+      height: 100%;
+      background-color: var(--primary-cyan);
+      border-radius: 2px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--panel-border);
+      border-radius: 2px;
+    }
+
+    #toast-container {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .toast {
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--panel-border);
+      border-left: 4px solid var(--primary-cyan);
+      color: var(--text-white);
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: auto;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="display: flex; align-items: center;">
+      <div class="logo-badge">F1</div>
+      <span class="logo-text">DOT RACER v2.1</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div id="safety-car-status" class="weather-badge hidden">
+        <span>🚔 SAFETY CAR DEPLOYED</span>
+      </div>
+      <div id="weather-display" class="weather-badge hidden">
+        <span id="weather-icon">☀️</span>
+        <span id="weather-text">Sunny</span>
+      </div>
+      <button id="btn-toggle-sound" class="btn-icon">🔊</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. MAIN MENU -->
+    <div id="screen-menu" class="grid grid-2">
+      <div class="panel" style="display: flex; flex-direction: column; justify-content: center;">
+        <span class="hero-label">Engine v2.1 [Championship Edition]</span>
+        <h2 class="hero-title">Grand Prix Racing Simulation</h2>
+        <p class="hero-desc">Advanced motorsport dynamics with 18 teams, qualifying, tire wear, pit stops, safety cars, FIA championship scoring, and dynamic weather!</p>
+        
+        <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+          <button onclick="changeScreen('quick-race-setup')" class="btn btn-primary" style="flex: 1;">▶️ Quick Race</button>
+          <button onclick="changeScreen('champ-setup')" class="btn btn-secondary" style="flex: 1;">🏆 Championship</button>
+        </div>
+
+        <div class="stats-row">
+          <div>
+            <div class="stat-val">26</div>
+            <div class="stat-lbl">Circuits</div>
+          </div>
+          <div>
+            <div class="stat-val">18</div>
+            <div class="stat-lbl">Teams</div>
+          </div>
+          <div>
+            <div class="stat-val">36</div>
+            <div class="stat-lbl">Drivers</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="gap: 16px;">
+        <div class="card-small flex items-center justify-between" style="padding: 20px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 4px;">Team Portal</h3>
+            <p style="font-size: 11px; color: #8f96a3;">Customize teams and drivers</p>
+          </div>
+          <button onclick="changeScreen('team-customizer')" class="btn btn-secondary" style="padding: 10px 14px;">⚙️</button>
+        </div>
+
+        <div class="track-preview-box">
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 12px;">🏁 Circuits</h3>
+          <div class="track-list-scrollable" id="menu-track-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. QUICK RACE SETUP -->
+    <div id="screen-quick-race-setup" class="hidden">
+      <div class="flex items-center gap-4" style="margin-bottom: 24px;">
+        <button onclick="changeScreen('menu')" class="btn-icon">←</button>
+        <div>
+          <h2 style="font-size: 24px; font-weight: 800; color: var(--text-white);">Quick Race Setup</h2>
+          <p style="font-size: 12px; color: #8f96a3;">Configure your race session</p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="panel" style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 16px;">Choose Track</h3>
+          <div class="track-list-scrollable" id="quick-track-selection" style="max-height: 380px;"></div>
+        </div>
+
+        <div class="panel" style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 20px;">Race Parameters</h3>
+            
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Grid Teams</span>
+                <span id="teams-count-val" class="val">18 (36 Cars)</span>
+              </div>
+              <input type="range" id="quick-teams-count" min="2" max="18" value="18" class="slider">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Laps</span>
+                <span id="lap-count-val" class="val">5</span>
+              </div>
+              <input type="range" id="quick-lap-count" min="1" max="75" value="5" class="slider">
+            </div>
+
+            <div class="slider-group">
+              <label style="display: flex; gap: 8px; align-items: center; cursor: pointer;">
+                <input type="checkbox" id="quick-enable-qualifying" checked style="width: 20px; height: 20px;">
+                <span style="font-size: 13px;">Enable Qualifying</span>
+              </label>
+            </div>
+
+            <div class="card-small flex items-center justify-between" style="margin-top: 32px;">
+              <div>
+                <span style="font-size: 10px; color: #8f96a3; text-transform: uppercase;">Selected Venue</span>
+                <div id="selected-track-name" style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-top: 2px;">Falklands GP</div>
+                <div id="selected-track-length" style="font-size: 11px; color: var(--primary-cyan); margin-top: 2px;">Falkland Islands</div>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="startQuickRace()" class="btn btn-primary" style="width: 100%; margin-top: 20px;">▶️ Launch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. CHAMPIONSHIP SETUP -->
+    <div id="screen-champ-setup" class="hidden">
+      <div class="flex items-center gap-4" style="margin-bottom: 24px;">
+        <button onclick="changeScreen('menu')" class="btn-icon">←</button>
+        <div>
+          <h2 style="font-size: 24px; font-weight: 800; color: var(--text-white);">Season Configuration</h2>
+          <p style="font-size: 12px; color: #8f96a3;">With FIA points system & safety cars</p>
+        </div>
+      </div>
+
+      <div class="panel" style="max-width: 600px; margin: 0 auto; padding: 32px;">
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Season Length</span>
+            <span id="champ-races-val" class="val">10 Races</span>
+          </div>
+          <input type="range" id="champ-races" min="3" max="26" value="10" class="slider">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Laps Per Race</span>
+            <span id="champ-laps-val" class="val">5</span>
+          </div>
+          <input type="range" id="champ-laps" min="1" max="75" value="5" class="slider">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Grid Size</span>
+            <span id="champ-teams-val" class="val">18 Teams</span>
+          </div>
+          <input type="range" id="champ-teams" min="4" max="18" value="18" class="slider">
+        </div>
+
+        <button onclick="startChampionship()" class="btn btn-primary" style="width: 100%; margin-top: 32px;">🏆 Build Season</button>
+      </div>
+    </div>
+
+    <!-- 4. CHAMPIONSHIP HUB -->
+    <div id="screen-champ-hub" class="hidden">
+      <div class="flex flex-col md:flex-row justify-between items-center" style="margin-bottom: 24px; gap: 16px;">
+        <div>
+          <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary-cyan);">FIA Championship</span>
+          <h2 id="champ-title" style="font-size: 24px; font-weight: 800; color: var(--text-white); margin-top: 4px;">Season Standings</h2>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="abandonChampionship()" class="btn btn-danger">End Season</button>
+          <button onclick="startNextChampRace()" class="btn btn-primary">Next Race →</button>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="panel flex flex-col" style="height: 480px;">
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 16px;">👤 Drivers Championship</h3>
+          <div id="champ-driver-standings-list" class="leaderboard-rows" style="height: 100%;"></div>
+        </div>
+
+        <div class="panel flex flex-col" style="height: 480px;">
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 16px;">🏢 Constructors Championship</h3>
+          <div id="champ-constructor-standings-list" class="leaderboard-rows" style="height: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. TEAM CUSTOMIZER -->
+    <div id="screen-team-customizer" class="hidden">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+        <div class="flex items-center gap-4">
+          <button onclick="changeScreen('menu')" class="btn-icon">←</button>
+          <div>
+            <h2 style="font-size: 24px; font-weight: 800; color: var(--text-white);">Constructor Hub</h2>
+            <p style="font-size: 12px; color: #8f96a3;">Customize team configurations</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="resetTeamsToDefault()" class="btn btn-secondary">Reset</button>
+          <button onclick="saveAllTeamEdits()" class="btn btn-primary">Apply</button>
+        </div>
+      </div>
+
+      <div class="team-grid" id="team-cards-container"></div>
+    </div>
+
+    <!-- 6. QUALIFYING SESSION -->
+    <div id="screen-qualifying" class="hidden" style="margin-bottom: 24px;">
+      <div class="race-hud-top">
+        <div class="flex items-center gap-4">
+          <div class="lap-counter-box">
+            <span class="lap-label">Session</span>
+            <div id="qualifying-session-display" class="lap-val">Q1</div>
+          </div>
+          <div>
+            <h2 id="qualifying-track-name" style="font-size: 18px; font-weight: 800; color: var(--text-white);">Qualifying</h2>
+            <p id="qualifying-desc" style="font-size: 11px; color: var(--primary-cyan);">Race for Pole Position</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="btn-qualify-play" onclick="toggleQualifyingPause()" class="btn-icon" style="width: 48px; height: 48px;">⏸️</button>
+          <div class="sim-speed-selector">
+            <button onclick="setQualifyingSpeed(1,'btn-qual-speed-1')" class="speed-btn active" id="btn-qual-speed-1">1x</button>
+            <button onclick="setQualifyingSpeed(2,'btn-qual-speed-2')" class="speed-btn" id="btn-qual-speed-2">2x</button>
+            <button onclick="setQualifyingSpeed(4,'btn-qual-speed-4')" class="speed-btn" id="btn-qual-speed-4">4x</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top: 16px;">
+        <div class="canvas-container">
+          <div class="live-feed-badge"><span class="live-feed-dot"></span> Qualifying</div>
+          <canvas id="qualifying-canvas"></canvas>
+        </div>
+
+        <div class="timings-panel">
+          <div class="timings-header">
+            <h3 class="timings-title">Qualifying Times</h3>
+            <span id="qualifying-timer" class="timer-display">00:00.00</span>
+          </div>
+          <div class="table-headers">
+            <span>Pos</span>
+            <span>Driver</span>
+            <span>Lap Time</span>
+            <span style="text-align: right;">Gap</span>
+          </div>
+          <div class="leaderboard-rows" id="qualifying-leaderboard"></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; text-align: center;">
+        <button onclick="finishQualifying()" class="btn btn-primary">▶️ Start Race</button>
+      </div>
+    </div>
+
+    <!-- 7. ACTIVE RACE -->
+    <div id="screen-race" class="hidden" style="margin-bottom: 24px;">
+      <div class="race-hud-top">
+        <div class="flex items-center gap-4">
+          <div class="lap-counter-box">
+            <span class="lap-label">Lap</span>
+            <div id="current-lap-display" class="lap-val">1 / 5</div>
+          </div>
+          <div>
+            <h2 id="race-track-name" style="font-size: 18px; font-weight: 800; color: var(--text-white);">Grand Prix</h2>
+            <p id="race-type-desc" style="font-size: 11px; color: var(--primary-cyan);">Offline Simulator</p>
+          </div>
+        </div>
+
+        <div class="start-lights" id="lights-container">
+          <div class="start-light-dot" data-light="1"></div>
+          <div class="start-light-dot" data-light="2"></div>
+          <div class="start-light-dot" data-light="3"></div>
+          <div class="start-light-dot" data-light="4"></div>
+          <div class="start-light-dot" data-light="5"></div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="btn-race-play" onclick="toggleRacePause()" class="btn-icon" style="width: 48px; height: 48px;">⏸️</button>
+          <div class="sim-speed-selector">
+            <button onclick="setSimSpeed(1,'btn-speed-1')" class="speed-btn active" id="btn-speed-1">1x</button>
+            <button onclick="setSimSpeed(2,'btn-speed-2')" class="speed-btn" id="btn-speed-2">2x</button>
+            <button onclick="setSimSpeed(4,'btn-speed-4')" class="speed-btn" id="btn-speed-4">4x</button>
+            <button onclick="setSimSpeed(10,'btn-speed-10')" class="speed-btn" id="btn-speed-10">10x</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top: 16px;">
+        <div class="canvas-container">
+          <div class="live-feed-badge"><span class="live-feed-dot"></span> Live</div>
+          <canvas id="race-canvas"></canvas>
+        </div>
+
+        <div class="timings-panel">
+          <div class="timings-header">
+            <h3 class="timings-title">Live Timings</h3>
+            <span id="race-timer" class="timer-display">00:00.00</span>
+          </div>
+          <div class="table-headers">
+            <span>Pos</span>
+            <span>Driver</span>
+            <span>Gap</span>
+            <span style="text-align: right;">Lap</span>
+          </div>
+          <div class="leaderboard-rows" id="live-race-leaderboard"></div>
+        </div>
+      </div>
+
+      <div id="incidents-panel" style="margin-top: 16px; max-height: 120px; overflow-y: auto;"></div>
+    </div>
+
+    <!-- 8. RACE RESULTS -->
+    <div id="screen-results" class="hidden" style="max-width: 700px; margin: 0 auto;">
+      <div class="panel" style="text-align: center; padding: 32px;">
+        <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary-cyan);">Session Complete</span>
+        <h2 style="font-size: 32px; font-weight: 800; color: var(--text-white); margin-top: 6px;">🏁 Race Results</h2>
+        <p id="results-track-title" style="font-size: 13px; color: #8f96a3; margin-top: 4px;">Falklands GP</p>
+
+        <div class="podium-container">
+          <div class="podium-step">
+            <div id="p2-initials" class="podium-avatar" style="border: 2px solid #99a">P2</div>
+            <span id="p2-name" class="podium-name">--</span>
+            <div class="podium-block" style="background-color: #2a2e36; height: 50px; color: #99a; margin-top: 6px;">2<div style="font-size: 8px; margin-top: 2px;">+18 pts</div></div>
+          </div>
+          <div class="podium-step">
+            <div id="p1-initials" class="podium-avatar" style="border: 3px solid #db5; width: 54px; height: 54px; font-size: 13px;">P1</div>
+            <span id="p1-name" class="podium-name" style="font-weight: 800; color: var(--text-white);">--</span>
+            <div class="podium-block" style="background-color: #3b331c; height: 80px; color: #db5; margin-top: 6px;">1<div style="font-size: 8px; margin-top: 2px;">+25 pts</div></div>
+          </div>
+          <div class="podium-step">
+            <div id="p3-initials" class="podium-avatar" style="border: 2px solid #a65">P3</div>
+            <span id="p3-name" class="podium-name">--</span>
+            <div class="podium-block" style="background-color: #2d241c; height: 36px; color: #a65; margin-top: 6px;">3<div style="font-size: 8px; margin-top: 2px;">+15 pts</div></div>
+          </div>
+        </div>
+
+        <div id="results-full-list" style="background-color: rgba(0,0,0,0.4); border: 1px solid var(--panel-border); border-radius: 16px; padding: 12px; text-align: left; max-height: 200px; overflow-y: auto;"></div>
+
+        <button onclick="handleRaceResolution()" class="btn btn-primary" style="width: 100%; margin-top: 20px;">← Return</button>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="toast-container"></div>
+  <footer style="padding: 16px; text-align: center; border-top: 1px solid rgba(255,255,255,0.02); font-size: 10px; color: #555c68;">
+    GPDot v2.1 • 18 Teams • Qualifying • Tire Wear • Pit Stops • Safety Cars • FIA Scoring • Dynamic Weather
+  </footer>
+
+  <script>
+    // ============= GAME STATE & CONFIG =============
+    let gameState = {
+      screen: 'menu',
+      selectedTrack: null,
+      gridTeams: 18,
+      lapCount: 5,
+      championship: null,
+      drivers: [],
+      incidents: [],
+      isPaused: false,
+      simSpeed: 1,
+      raceTime: 0,
+      weather: 'SUNNY',
+      enableQualifying: true,
+      pitStopData: {},
+      safetyCarActive: false,
+      safetyCarLap: null
+    };
+
+    // Tire Compounds with wear
+    const TIRE_COMPOUNDS = {
+      SOFT: { name: 'Soft', emoji: '🔴', grip: 1.15, durability: 0.6, wearRate: 0.8 },
+      MEDIUM: { name: 'Medium', emoji: '🟡', grip: 1.0, durability: 0.85, wearRate: 0.5 },
+      HARD: { name: 'Hard', emoji: '🔵', grip: 0.85, durability: 1.0, wearRate: 0.3 },
+      WET: { name: 'Wet', emoji: '💧', grip: 0.8, durability: 1.1, wearRate: 0.4 }
+    };
+
+    // Weather
+    const WEATHER_CONDITIONS = {
+      SUNNY: { name: 'Sunny', icon: '☀️', grip: 1.0, incidents: 0.02 },
+      CLOUDY: { name: 'Cloudy', icon: '☁️', grip: 0.98, incidents: 0.05 },
+      RAINY: { name: 'Rainy', icon: '🌧️', grip: 0.75, incidents: 0.15 },
+      STORMY: { name: 'Stormy', icon: '⛈️', grip: 0.6, incidents: 0.25 }
+    };
+
+    // FIA Points System
+    const FIA_POINTS = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+
+    // 18 Teams
+    // car stats (0-1): topSpeed affects straights, cornering affects twisty sections,
+    // acceleration affects exits/traction zones, reliability affects DNF chance.
+    // Each team has a realistic tradeoff — no team is best at everything.
+    const TEAMS_DATA = [
+      { id: 1, name: 'Apex Accelerators', color: '#e10600', drivers: ['Verstappen', 'Perez'],    car: { topSpeed: 0.95, cornering: 0.98, acceleration: 0.96, reliability: 0.88 } },
+      { id: 2, name: 'Silver Strikers',   color: '#c0c0c0', drivers: ['Hamilton', 'Russell'],    car: { topSpeed: 0.97, cornering: 0.90, acceleration: 0.91, reliability: 0.95 } },
+      { id: 3, name: 'Golden Grip',       color: '#ffd700', drivers: ['Leclerc', 'Sainz'],       car: { topSpeed: 0.93, cornering: 0.94, acceleration: 0.92, reliability: 0.82 } },
+      { id: 4, name: 'Blaze Motors',      color: '#ff6600', drivers: ['Norris', 'Piastri'],      car: { topSpeed: 0.91, cornering: 0.96, acceleration: 0.94, reliability: 0.90 } },
+      { id: 5, name: 'Cyan Crew',         color: '#00d4ff', drivers: ['Alonso', 'Stroll'],       car: { topSpeed: 0.88, cornering: 0.92, acceleration: 0.90, reliability: 0.93 } },
+      { id: 6, name: 'Phantom Racing',    color: '#6a6aae', drivers: ['Magnussen', 'Hulkenberg'],car: { topSpeed: 0.87, cornering: 0.85, acceleration: 0.88, reliability: 0.91 } },
+      { id: 7, name: 'Velocity Ventures', color: '#ff0080', drivers: ['Ricciardo', 'Tsunoda'],   car: { topSpeed: 0.90, cornering: 0.83, acceleration: 0.86, reliability: 0.87 } },
+      { id: 8, name: 'Quantum Quest',     color: '#9d4edd', drivers: ['Bottas', 'Zhou'],         car: { topSpeed: 0.84, cornering: 0.88, acceleration: 0.85, reliability: 0.89 } },
+      { id: 9, name: 'Nexus Nitro',       color: '#00ff88', drivers: ['Gasly', 'De Vries'],      car: { topSpeed: 0.86, cornering: 0.87, acceleration: 0.89, reliability: 0.86 } },
+      { id: 10, name: 'Turbo Titans',     color: '#ff4500', drivers: ['Ocon', 'Marko'],          car: { topSpeed: 0.92, cornering: 0.80, acceleration: 0.82, reliability: 0.84 } },
+      { id: 11, name: 'Aurora Axis',      color: '#ff006e', drivers: ['Bearman', 'Shwartzman'],  car: { topSpeed: 0.82, cornering: 0.84, acceleration: 0.83, reliability: 0.88 } },
+      { id: 12, name: 'Cosmos Racers',    color: '#8338ec', drivers: ['Lawson', 'Villeneuve'],   car: { topSpeed: 0.80, cornering: 0.86, acceleration: 0.84, reliability: 0.85 } },
+      { id: 13, name: 'Zenith Zippers',   color: '#ffbe0b', drivers: ['Sato', 'Hartley'],        car: { topSpeed: 0.85, cornering: 0.81, acceleration: 0.87, reliability: 0.80 } },
+      { id: 14, name: 'Prism Pilots',     color: '#3a86ff', drivers: ['Bourdais', 'Maldonado'],  car: { topSpeed: 0.83, cornering: 0.79, acceleration: 0.81, reliability: 0.83 } },
+      { id: 15, name: 'Nova Navigators',  color: '#fb5607', drivers: ['Fittipaldi', 'Deletraz'], car: { topSpeed: 0.78, cornering: 0.82, acceleration: 0.80, reliability: 0.87 } },
+      { id: 16, name: 'Eclipse Enthusiasts', color: '#1d3557', drivers: ['Giovinazzi', 'Raikkonen'], car: { topSpeed: 0.76, cornering: 0.83, acceleration: 0.78, reliability: 0.90 } },
+      { id: 17, name: 'Summit Speeders',  color: '#2a9d8f', drivers: ['Villagomez', 'Ericsson'], car: { topSpeed: 0.75, cornering: 0.77, acceleration: 0.79, reliability: 0.86 } },
+      { id: 18, name: 'Vortex Velocity',  color: '#e76f51', drivers: ['Checo', 'Maverick'],      car: { topSpeed: 0.73, cornering: 0.75, acceleration: 0.76, reliability: 0.84 } }
+    ];
+
+    // Tracks
+    // straightPct: fraction of lap that is high-speed straight (favours topSpeed)
+    // cornerDemand: how demanding the corners are (favours cornering)
+    // tractionZones: number of slow-corner exits (favours acceleration)
+    // overtakeDifficulty: 0=easy, 1=impossible (Monaco is 0.95, Monza is 0.2)
+    const TRACKS = [
+      { id: 1,  name: 'Falklands GP',        country: 'Falkland Islands', turns: 23, straightPct: 0.42, cornerDemand: 0.65, tractionZones: 6,  overtakeDifficulty: 0.55 },
+      { id: 2,  name: 'Monaco',              country: 'Monaco',           turns: 19, straightPct: 0.18, cornerDemand: 0.98, tractionZones: 10, overtakeDifficulty: 0.95 },
+      { id: 3,  name: 'Silverstone',         country: 'UK',               turns: 18, straightPct: 0.38, cornerDemand: 0.88, tractionZones: 5,  overtakeDifficulty: 0.45 },
+      { id: 4,  name: 'Monza',               country: 'Italy',            turns: 11, straightPct: 0.72, cornerDemand: 0.45, tractionZones: 3,  overtakeDifficulty: 0.20 },
+      { id: 5,  name: 'Spa',                 country: 'Belgium',          turns: 19, straightPct: 0.50, cornerDemand: 0.80, tractionZones: 5,  overtakeDifficulty: 0.38 },
+      { id: 6,  name: 'Nürburgring',         country: 'Germany',          turns: 17, straightPct: 0.35, cornerDemand: 0.75, tractionZones: 6,  overtakeDifficulty: 0.50 },
+      { id: 7,  name: 'Suzuka',              country: 'Japan',            turns: 18, straightPct: 0.30, cornerDemand: 0.92, tractionZones: 7,  overtakeDifficulty: 0.60 },
+      { id: 8,  name: 'Singapore',           country: 'Singapore',        turns: 23, straightPct: 0.22, cornerDemand: 0.90, tractionZones: 11, overtakeDifficulty: 0.82 },
+      { id: 9,  name: 'Interlagos',          country: 'Brazil',           turns: 15, straightPct: 0.40, cornerDemand: 0.72, tractionZones: 6,  overtakeDifficulty: 0.42 },
+      { id: 10, name: 'COTA',                country: 'USA',              turns: 20, straightPct: 0.36, cornerDemand: 0.82, tractionZones: 8,  overtakeDifficulty: 0.48 },
+      { id: 11, name: 'Red Bull Ring',        country: 'Austria',          turns: 10, straightPct: 0.55, cornerDemand: 0.60, tractionZones: 4,  overtakeDifficulty: 0.30 },
+      { id: 12, name: 'Paul Ricard',          country: 'France',           turns: 15, straightPct: 0.50, cornerDemand: 0.65, tractionZones: 5,  overtakeDifficulty: 0.40 },
+      { id: 13, name: 'Hungaroring',          country: 'Hungary',          turns: 14, straightPct: 0.25, cornerDemand: 0.88, tractionZones: 9,  overtakeDifficulty: 0.78 },
+      { id: 14, name: 'Baku',                country: 'Azerbaijan',       turns: 20, straightPct: 0.55, cornerDemand: 0.70, tractionZones: 7,  overtakeDifficulty: 0.35 },
+      { id: 15, name: 'Jeddah',              country: 'Saudi Arabia',     turns: 27, straightPct: 0.52, cornerDemand: 0.75, tractionZones: 8,  overtakeDifficulty: 0.38 },
+      { id: 16, name: 'Las Vegas',           country: 'USA',              turns: 17, straightPct: 0.58, cornerDemand: 0.55, tractionZones: 5,  overtakeDifficulty: 0.30 },
+      { id: 17, name: 'Shanghai',            country: 'China',            turns: 16, straightPct: 0.45, cornerDemand: 0.70, tractionZones: 6,  overtakeDifficulty: 0.40 },
+      { id: 18, name: 'Sepang',              country: 'Malaysia',         turns: 15, straightPct: 0.48, cornerDemand: 0.68, tractionZones: 5,  overtakeDifficulty: 0.38 },
+      { id: 19, name: 'Buddh',               country: 'India',            turns: 16, straightPct: 0.42, cornerDemand: 0.72, tractionZones: 6,  overtakeDifficulty: 0.45 },
+      { id: 20, name: 'Sakhir',              country: 'Bahrain',          turns: 15, straightPct: 0.45, cornerDemand: 0.65, tractionZones: 5,  overtakeDifficulty: 0.42 },
+      { id: 21, name: 'Yas Marina',          country: 'UAE',              turns: 21, straightPct: 0.40, cornerDemand: 0.70, tractionZones: 7,  overtakeDifficulty: 0.48 },
+      { id: 22, name: 'Albert Park',         country: 'Australia',        turns: 16, straightPct: 0.42, cornerDemand: 0.68, tractionZones: 5,  overtakeDifficulty: 0.44 },
+      { id: 23, name: 'Gilles Villeneuve',   country: 'Canada',           turns: 13, straightPct: 0.55, cornerDemand: 0.62, tractionZones: 4,  overtakeDifficulty: 0.30 },
+      { id: 24, name: 'Hermanos Rodriguez',  country: 'Mexico',           turns: 17, straightPct: 0.46, cornerDemand: 0.70, tractionZones: 6,  overtakeDifficulty: 0.42 },
+      { id: 25, name: 'Autodromo Nazionale', country: 'Italy',            turns: 11, straightPct: 0.65, cornerDemand: 0.50, tractionZones: 3,  overtakeDifficulty: 0.28 },
+      { id: 26, name: 'Mugello',             country: 'Italy',            turns: 15, straightPct: 0.38, cornerDemand: 0.85, tractionZones: 5,  overtakeDifficulty: 0.55 }
+    ];
+
+    // ============= UTILITIES =============
+    function changeScreen(screenName) {
+      document.querySelectorAll('main > div[id^="screen-"]').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`screen-${screenName}`).classList.remove('hidden');
+      gameState.screen = screenName;
+    }
+
+    function showToast(msg) {
+      const toast = document.createElement('div');
+      toast.className = 'toast show';
+      toast.textContent = msg;
+      document.getElementById('toast-container').appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    function formatTime(secs) {
+      const m = Math.floor(secs / 60);
+      const s = (secs % 60).toFixed(2);
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(5, '0')}`;
+    }
+
+    // ============= INITIALIZATION =============
+    function initGame() {
+      gameState.teams = TEAMS_DATA.slice();
+      gameState.selectedTrack = TRACKS[0];
+
+      ['menu-track-list', 'quick-track-selection'].forEach(id => {
+        const container = document.getElementById(id);
+        container.innerHTML = '';
+        TRACKS.forEach(track => {
+          const div = document.createElement('div');
+          div.className = 'track-item';
+          div.innerHTML = `<div><div class="track-item-name">${track.name}</div></div>`;
+          div.onclick = () => {
+            gameState.selectedTrack = track;
+            document.getElementById('selected-track-name').textContent = track.name;
+            document.getElementById('selected-track-length').textContent = track.country;
+          };
+          container.appendChild(div);
+        });
+      });
+
+      document.getElementById('quick-teams-count').addEventListener('input', (e) => {
+        gameState.gridTeams = parseInt(e.target.value);
+        document.getElementById('teams-count-val').textContent = `${gameState.gridTeams} (${gameState.gridTeams * 2} Cars)`;
+      });
+
+      document.getElementById('quick-lap-count').addEventListener('input', (e) => {
+        gameState.lapCount = parseInt(e.target.value);
+        document.getElementById('lap-count-val').textContent = `${gameState.lapCount} Laps`;
+      });
+
+      document.getElementById('champ-races').addEventListener('input', (e) => {
+        document.getElementById('champ-races-val').textContent = `${e.target.value} Races`;
+      });
+
+      document.getElementById('champ-laps').addEventListener('input', (e) => {
+        document.getElementById('champ-laps-val').textContent = `${e.target.value} Laps`;
+      });
+
+      document.getElementById('champ-teams').addEventListener('input', (e) => {
+        const v = parseInt(e.target.value);
+        document.getElementById('champ-teams-val').textContent = `${v} Teams`;
+      });
+
+      renderTeamCustomizer();
+      showToast('🚀 GPDot v2.1 Championship Edition loaded!');
+    }
+
+    function renderTeamCustomizer() {
+      const container = document.getElementById('team-cards-container');
+      container.innerHTML = '';
+      gameState.teams.slice(0, gameState.gridTeams).forEach(team => {
+        const card = document.createElement('div');
+        card.className = 'team-card';
+        card.innerHTML = `
+          <div style="margin-bottom: 12px; display: flex; gap: 8px; align-items: center;">
+            <div style="width: 24px; height: 24px; background-color: ${team.color}; border-radius: 4px;"></div>
+            <input type="text" class="input-text" value="${team.name}" placeholder="Team Name" style="flex: 1;">
+          </div>
+          <label style="font-size: 11px; color: #8f96a3; margin-bottom: 4px; display: block;">Color</label>
+          <input type="color" class="input-color" value="${team.color}" style="width: 100%; cursor: pointer;">
+          <label style="font-size: 11px; color: #8f96a3; margin-bottom: 4px; display: block; margin-top: 12px;">Drivers</label>
+          <input type="text" class="input-text" value="${team.drivers.join(' / ')}" placeholder="Driver names" style="font-size: 10px;">
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function startQuickRace() {
+      gameState.enableQualifying = document.getElementById('quick-enable-qualifying').checked;
+      if (gameState.enableQualifying) {
+        initializeQualifying();
+        changeScreen('qualifying');
+      } else {
+        initializeRace();
+        changeScreen('race');
+      }
+    }
+
+    // Compute a single lap-pace score for a driver given current track & conditions.
+    // Higher = faster (lower lap time). Used for ordering and overtake logic.
+    function driverPace(driver) {
+      const track = gameState.selectedTrack || TRACKS[0];
+      const tire  = TIRE_COMPOUNDS[driver.tireCompound];
+      const wx    = WEATHER_CONDITIONS[gameState.weather];
+      const car   = driver.car;
+
+      // Weighted blend of car stats against what this track rewards
+      const straightScore   = car.topSpeed    * track.straightPct;
+      const cornerScore     = car.cornering   * track.cornerDemand;
+      const tractionScore   = car.acceleration * (track.tractionZones / 15);
+      const carScore = (straightScore + cornerScore + tractionScore) / (track.straightPct + track.cornerDemand + track.tractionZones / 15);
+
+      // Tire grip, degraded by wear
+      const tireGrip = tire.grip * (1 - driver.tireWear / 200);
+
+      // Weather penalty
+      const weatherGrip = wx.grip;
+
+      // Driver skill: slight per-driver variance (seeded by driver id so it's consistent)
+      const driverSkill = 0.97 + (((driver.id * 17 + 7) % 7) / 7) * 0.06;
+
+      return carScore * tireGrip * weatherGrip * driverSkill;
+    }
+
+    function generateDrivers(teamCount) {
+      const drivers = [];
+      for (let i = 0; i < teamCount; i++) {
+        const team = gameState.teams[i];
+        team.drivers.forEach((driverName, driverIdx) => {
+          drivers.push({
+            id: drivers.length,
+            number: i * 2 + driverIdx + 1,
+            name: driverName,
+            team: team.name,
+            teamId: team.id,
+            color: team.color,
+            car: team.car,           // car performance stats
+            position: drivers.length + 1,
+            lapTime: 0,
+            bestLap: 999,
+            lapsCompleted: 0,
+            tireCompound: 'SOFT',
+            tireWear: 0,
+            pitStops: 0,
+            incidents: 0,
+            isDNF: false,
+            points: 0,
+            gap: 0                   // gap to driver ahead in sim-seconds
+          });
+        });
+      }
+      return drivers;
+    }
+
+    function initializeQualifying() {
+      gameState.drivers = generateDrivers(gameState.gridTeams);
+      gameState.raceTime = 0;
+      gameState.isPaused = false;
+      const weatherKeys = Object.keys(WEATHER_CONDITIONS);
+      gameState.weather = weatherKeys[Math.floor(Math.random() * weatherKeys.length)];
+      updateWeatherDisplay();
+      initDriverProgress();
+      renderQualifyingLeaderboard();
+      startQualifyingLoop();
+      startQualifyingCanvasAnimation();
+    }
+
+    function renderQualifyingLeaderboard() {
+      const leaderboard = document.getElementById('qualifying-leaderboard');
+      leaderboard.innerHTML = '';
+      const sorted = [...gameState.drivers].sort((a, b) => a.bestLap - b.bestLap);
+      sorted.forEach((driver, idx) => {
+        const row = document.createElement('div');
+        row.className = 'row-item';
+        const lapTimeStr = driver.bestLap < 999 ? formatTime(driver.bestLap) : '--:--';
+        const gap = idx > 0 && driver.bestLap < 999 ? formatTime(driver.bestLap - sorted[0].bestLap) : '--';
+        row.innerHTML = `<div>${idx + 1}</div><div>${driver.name}<span class="row-color-pill" style="background-color: ${driver.color}"></span></div><div>${lapTimeStr}</div><div style="text-align: right;">${gap}</div>`;
+        leaderboard.appendChild(row);
+      });
+    }
+
+    function startQualifyingLoop() {
+      const loop = setInterval(() => {
+        if (gameState.isPaused || gameState.screen !== 'qualifying') { clearInterval(loop); return; }
+        gameState.raceTime += 0.1 * gameState.simSpeed;
+        gameState.drivers.forEach(driver => {
+          // Lap time based on pace score — faster cars set quicker times naturally
+          const pace = driverPace(driver);
+          const baseLapTime = 58 + (1 - pace) * 12;
+          const variance = (Math.random() - 0.5) * 1.5; // ±0.75s variation per lap
+          const thisLap = baseLapTime + variance;
+          if (thisLap < driver.bestLap) driver.bestLap = thisLap;
+        });
+        renderQualifyingLeaderboard();
+        document.getElementById('qualifying-timer').textContent = formatTime(gameState.raceTime);
+      }, 100);
+    }
+
+    function toggleQualifyingPause() {
+      gameState.isPaused = !gameState.isPaused;
+      document.getElementById('btn-qualify-play').textContent = gameState.isPaused ? '▶️' : '⏸️';
+    }
+
+    function setQualifyingSpeed(speed, btnId) {
+      gameState.simSpeed = speed;
+      document.querySelectorAll('#btn-qual-speed-1, #btn-qual-speed-2, #btn-qual-speed-4').forEach(btn => btn.classList.remove('active'));
+      if (btnId) document.getElementById(btnId).classList.add('active');
+    }
+
+    function finishQualifying() {
+      initializeRace();
+      changeScreen('race');
+    }
+
+    function initializeRace() {
+      if (!gameState.drivers.length) gameState.drivers = generateDrivers(gameState.gridTeams);
+      gameState.drivers.forEach(driver => {
+        gameState.pitStopData[driver.id] = { stopsDone: 0, nextStopLap: 15 };
+      });
+      gameState.raceTime = 0;
+      gameState.incidents = [];
+      gameState.isPaused = false;
+      gameState.simSpeed = 1;
+      gameState.safetyCarActive = false;
+      document.getElementById('safety-car-status').classList.add('hidden');
+      document.getElementById('current-lap-display').textContent = `1 / ${gameState.lapCount}`;
+      document.getElementById('race-track-name').textContent = gameState.selectedTrack.name;
+      if (!gameState.driverProgress) initDriverProgress();
+      renderLiveLeaderboard();
+      startRaceLoop();
+      startCanvasAnimation();
+    }
+
+    function renderLiveLeaderboard() {
+      const leaderboard = document.getElementById('live-race-leaderboard');
+      leaderboard.innerHTML = '';
+      const sorted = [...gameState.drivers].filter(d => !d.isDNF).sort((a, b) => a.position - b.position);
+      sorted.slice(0, 20).forEach((driver, idx) => {
+        const row = document.createElement('div');
+        row.className = 'row-item';
+        const gap = idx > 0 ? '+' + (Math.random() * 5).toFixed(2) : 'LEAD';
+        row.innerHTML = `<div>${driver.position}</div><div>${driver.name}<span class="row-color-pill" style="background-color: ${driver.color}"></span></div><div>${gap} ${TIRE_COMPOUNDS[driver.tireCompound].emoji}</div><div style="text-align: right;">${driver.lapsCompleted}/${gameState.lapCount}</div>`;
+        leaderboard.appendChild(row);
+      });
+    }
+
+    function startRaceLoop() {
+      // Initialise gap array — each driver starts with a tiny gap to the car ahead
+      // (spread over ~0.2s) so they don't form an instant train
+      const sorted0 = [...gameState.drivers].sort((a, b) => a.position - b.position);
+      sorted0.forEach((d, i) => { d.gap = i * 0.04; });
+
+      const loop = setInterval(() => {
+        if (gameState.isPaused || gameState.screen !== 'race') { clearInterval(loop); return; }
+        gameState.raceTime += 0.1 * gameState.simSpeed;
+        const inInvincibility = performance.now() < (gameState.invincibilityUntil || 0);
+        const track = gameState.selectedTrack || TRACKS[0];
+
+        // ── Build sorted-by-position list once per tick ──────────────────────
+        const byPos = [...gameState.drivers].filter(d => !d.isDNF)
+                        .sort((a, b) => a.position - b.position);
+
+        byPos.forEach((driver, posIdx) => {
+          if (driver.lapsCompleted >= gameState.lapCount) return;
+
+          // ── Tire wear ────────────────────────────────────────────────────
+          driver.tireWear += TIRE_COMPOUNDS[driver.tireCompound].wearRate * 0.08 * gameState.simSpeed;
+
+          // ── Lap time accumulation (uses pace score) ─────────────────────
+          const pace = driverPace(driver);
+          const baseLapTime = 58 + (1 - pace) * 12;   // ~58–70s depending on pace
+          driver.lapTime += baseLapTime * 0.001 * gameState.simSpeed;
+
+          // ── Pit stop: swap tires when worn ──────────────────────────────
+          if (driver.tireWear > 82) {
+            const compounds = gameState.weather === 'RAINY' || gameState.weather === 'STORMY'
+              ? ['WET'] : ['MEDIUM', 'HARD', 'MEDIUM'];
+            driver.tireCompound = compounds[Math.floor(Math.random() * compounds.length)];
+            driver.tireWear = 8 + Math.random() * 5;
+            driver.pitStops++;
+            // Pit stop costs ~2-3 positions temporarily (gap penalty)
+            driver.gap += 20 + Math.random() * 10;
+          }
+
+          // ── Incident check ───────────────────────────────────────────────
+          if (!inInvincibility) {
+            const relBase = driver.car.reliability;
+            const wxFactor = WEATHER_CONDITIONS[gameState.weather].incidents;
+            // Base incident probability — very low, scales with weather not speed
+            const pIncident = wxFactor * 0.002 * gameState.simSpeed * (1 - relBase * 0.8);
+            if (Math.random() < pIncident) {
+              if (Math.random() < 0.07) {
+                driver.isDNF = true;
+                triggerSafetyCarIfNeeded();
+                showIncidentAlert(`🚨 DNF: ${driver.name}`);
+                return;
+              } else {
+                driver.incidents++;
+                driver.gap += 3 + Math.random() * 4; // time loss
+                showIncidentAlert(`⚠️ ${driver.name}: Track incident`);
+              }
+            }
+          }
+
+          // ── Overtaking logic ─────────────────────────────────────────────
+          // Only attempt if not the leader
+          if (posIdx === 0) return;
+          const carAhead = byPos[posIdx - 1];
+          if (!carAhead || carAhead.isDNF) return;
+
+          const myPace    = driverPace(driver);
+          const theirPace = driverPace(carAhead);
+          const paceDelta = myPace - theirPace; // positive means I'm faster
+
+          // Gap closes/opens based on relative pace (in sim-seconds per tick)
+          const gapChange = -(paceDelta * 2.5 * gameState.simSpeed);
+          driver.gap = Math.max(0, driver.gap + gapChange);
+
+          // Overtake attempt: must be close enough AND faster AND track allows it
+          const gapThreshold = 1.5 + track.overtakeDifficulty * 2.0;
+          if (driver.gap < gapThreshold && paceDelta > 0.002) {
+            // Probability: harder on tight tracks (Monaco=0.95), easy on Monza (0.20)
+            const baseP = (1 - track.overtakeDifficulty) * 0.04 * gameState.simSpeed;
+            // Boost if pace advantage is large
+            const paceBoost = Math.min(paceDelta * 8, 0.06);
+            // Tire advantage helps
+            const tireAdvantage = TIRE_COMPOUNDS[driver.tireCompound].grip
+                                - TIRE_COMPOUNDS[carAhead.tireCompound].grip;
+            const tireBoost = Math.max(0, tireAdvantage * 0.03);
+
+            if (Math.random() < baseP + paceBoost + tireBoost) {
+              // Successful overtake
+              [driver.position, carAhead.position] = [carAhead.position, driver.position];
+              driver.gap = gapThreshold * 0.6; // pull out a small gap after the move
+              showIncidentAlert(`🔄 ${driver.name} passes ${carAhead.name}`);
+            }
+          }
+        });
+
+        document.getElementById('race-timer').textContent = formatTime(gameState.raceTime);
+        renderLiveLeaderboard();
+      }, 100);
+      gameState._raceInterval = loop;
+    }
+
+    function triggerSafetyCarIfNeeded() {
+      if (!gameState.safetyCarActive && Math.random() < 0.15) {
+        gameState.safetyCarActive = true;
+        gameState.safetyCarLap = gameState.leaderLap + 2;
+        document.getElementById('safety-car-status').classList.remove('hidden');
+        showIncidentAlert('🚔 SAFETY CAR DEPLOYED');
+      }
+    }
+
+    function showIncidentAlert(msg) {
+      gameState.incidents.push(msg);
+      const panel = document.getElementById('incidents-panel');
+      const alert = document.createElement('div');
+      alert.className = msg.includes('SAFETY') ? 'safety-car-alert' : 'incident-alert';
+      alert.textContent = msg;
+      panel.appendChild(alert);
+      if (panel.children.length > 5) panel.removeChild(panel.firstChild);
+    }
+
+    function updateWeatherDisplay() {
+      const weather = WEATHER_CONDITIONS[gameState.weather];
+      const display = document.getElementById('weather-display');
+      display.classList.remove('hidden');
+      document.getElementById('weather-icon').textContent = weather.icon;
+      document.getElementById('weather-text').textContent = weather.name;
+    }
+
+    function toggleRacePause() {
+      gameState.isPaused = !gameState.isPaused;
+      document.getElementById('btn-race-play').textContent = gameState.isPaused ? '▶️' : '⏸️';
+    }
+
+    function setSimSpeed(speed, btnId) {
+      gameState.simSpeed = speed;
+      document.querySelectorAll('#btn-speed-1, #btn-speed-2, #btn-speed-4, #btn-speed-10').forEach(btn => btn.classList.remove('active'));
+      if (btnId) document.getElementById(btnId).classList.add('active');
+    }
+
+    function finishRace() {
+      const sorted = [...gameState.drivers].filter(d => !d.isDNF).sort((a, b) => b.lapsCompleted - a.lapsCompleted || a.lapTime - b.lapTime);
+      
+      // Award FIA points
+      sorted.forEach((driver, idx) => {
+        if (idx < FIA_POINTS.length) {
+          driver.points += FIA_POINTS[idx];
+          if (gameState.championship) {
+            const champDriver = gameState.championship.driverStandings.find(d => d.name === driver.name);
+            if (champDriver) champDriver.points += FIA_POINTS[idx];
+            const champTeam = gameState.championship.constructorStandings.find(t => t.name === driver.team);
+            if (champTeam) champTeam.points += FIA_POINTS[idx];
+          }
+        }
+      });
+      
+      const [p1, p2, p3] = [sorted[0], sorted[1], sorted[2]];
+      document.getElementById('p1-initials').textContent = p1 ? p1.name.substring(0, 2) : '--';
+      document.getElementById('p1-name').textContent = p1 ? p1.name : '--';
+      document.getElementById('p2-initials').textContent = p2 ? p2.name.substring(0, 2) : '--';
+      document.getElementById('p2-name').textContent = p2 ? p2.name : '--';
+      document.getElementById('p3-initials').textContent = p3 ? p3.name.substring(0, 2) : '--';
+      document.getElementById('p3-name').textContent = p3 ? p3.name : '--';
+      
+      const resultsList = document.getElementById('results-full-list');
+      resultsList.innerHTML = '';
+      sorted.slice(0, 10).forEach((driver, idx) => {
+        const item = document.createElement('div');
+        item.style.padding = '8px';
+        item.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+        const points = idx < FIA_POINTS.length ? FIA_POINTS[idx] : 0;
+        item.innerHTML = `<strong>${idx + 1}.</strong> ${driver.name} - ${driver.lapsCompleted}L <span class="points-badge">+${points} pts</span>`;
+        resultsList.appendChild(item);
+      });
+      
+      document.getElementById('results-track-title').textContent = gameState.selectedTrack.name;
+      changeScreen('results');
+    }
+
+    function handleRaceResolution() {
+      if (gameState.championship) {
+        gameState.championship.raceNumber++;
+        updateChampionshipStandings();
+        changeScreen('champ-hub');
+      } else {
+        changeScreen('menu');
+      }
+    }
+
+    function startChampionship() {
+      gameState.lapCount = parseInt(document.getElementById('champ-laps').value);
+      gameState.gridTeams = parseInt(document.getElementById('champ-teams').value);
+      gameState.championship = {
+        raceNumber: 1,
+        totalRaces: parseInt(document.getElementById('champ-races').value),
+        driverStandings: [],
+        constructorStandings: []
+      };
+      initializeChampionshipStandings();
+      startNextChampRace();
+    }
+
+    function initializeChampionshipStandings() {
+      gameState.championship.driverStandings = [];
+      gameState.championship.constructorStandings = [];
+      
+      gameState.teams.slice(0, gameState.gridTeams).forEach(team => {
+        team.drivers.forEach(driver => {
+          gameState.championship.driverStandings.push({ name: driver, team: team.name, points: 0 });
+        });
+        gameState.championship.constructorStandings.push({ name: team.name, points: 0 });
+      });
+    }
+
+    function updateChampionshipStandings() {
+      const driverList = document.getElementById('champ-driver-standings-list');
+      driverList.innerHTML = '';
+      const sortedDrivers = [...gameState.championship.driverStandings].sort((a, b) => b.points - a.points);
+      sortedDrivers.slice(0, 15).forEach((driver, idx) => {
+        const row = document.createElement('div');
+        row.className = 'row-item';
+        row.innerHTML = `<div>${idx + 1}</div><div>${driver.name}<span class="row-color-pill" style="background-color: #666;"></span></div><div>${driver.team}</div><div style="text-align: right; font-weight: 700;">${driver.points}</div>`;
+        driverList.appendChild(row);
+      });
+      
+      const constructorList = document.getElementById('champ-constructor-standings-list');
+      constructorList.innerHTML = '';
+      const sortedConstructors = [...gameState.championship.constructorStandings].sort((a, b) => b.points - a.points);
+      sortedConstructors.forEach((team, idx) => {
+        const row = document.createElement('div');
+        row.className = 'row-item';
+        row.innerHTML = `<div>${idx + 1}</div><div>${team.name}</div><div></div><div style="text-align: right; font-weight: 700;">${team.points}</div>`;
+        constructorList.appendChild(row);
+      });
+      
+      document.getElementById('champ-title').textContent = `Season Standings (Race ${gameState.championship.raceNumber} / ${gameState.championship.totalRaces})`;
+    }
+
+    function startNextChampRace() {
+      if (gameState.championship.raceNumber > gameState.championship.totalRaces) {
+        showToast('🏆 Championship Season Complete!');
+        changeScreen('menu');
+        return;
+      }
+      
+      gameState.selectedTrack = TRACKS[Math.floor(Math.random() * TRACKS.length)];
+      gameState.drivers = generateDrivers(gameState.gridTeams);
+      document.getElementById('next-race-name').textContent = gameState.selectedTrack.name;
+      updateChampionshipStandings();
+      
+      if (gameState.enableQualifying) {
+        initializeQualifying();
+        changeScreen('qualifying');
+      } else {
+        initializeRace();
+        changeScreen('race');
+      }
+    }
+
+    function abandonChampionship() {
+      if (confirm('End championship season?')) {
+        gameState.championship = null;
+        changeScreen('menu');
+        showToast('Championship season ended.');
+      }
+    }
+
+    function resetTeamsToDefault() {
+      gameState.teams = TEAMS_DATA.slice();
+      renderTeamCustomizer();
+      showToast('✅ Teams reset to defaults!');
+    }
+
+    function saveAllTeamEdits() {
+      showToast('✅ Team configurations saved!');
+    }
+
+
+    // ============= CIRCUIT LAYOUTS =============
+    // Normalised [x,y] waypoints hand-crafted from official FIA/F1 circuit maps.
+    // Orientation: x=right, y=down. Points wind in racing direction.
+    // Start/Finish is always waypoint [0].
+    const CIRCUIT_LAYOUTS = {
+
+      // ── 1. Falklands GP (fictional, mixed character) ──────────────────────
+      1: [[0.52,0.14],[0.72,0.12],[0.84,0.20],[0.88,0.32],[0.82,0.44],[0.68,0.48],
+          [0.72,0.58],[0.78,0.70],[0.66,0.82],[0.46,0.86],[0.28,0.78],[0.18,0.62],
+          [0.22,0.44],[0.32,0.34],[0.24,0.22],[0.38,0.12]],
+
+      // ── 2. Monaco ─────────────────────────────────────────────────────────
+      // S/F on pit straight → Ste Devote hairpin → uphill to Casino → Mirabeau
+      // → Loews hairpin (tightest) → Portier → tunnel → chicane → Tabac
+      // → Swimming Pool → Rascasse → Antony Noghes → back to S/F
+      2: [[0.55,0.82],[0.72,0.80],[0.82,0.72],[0.82,0.58],[0.75,0.48],[0.65,0.42],
+          [0.58,0.36],[0.50,0.28],[0.40,0.22],[0.30,0.18],[0.20,0.24],[0.16,0.36],
+          [0.22,0.46],[0.30,0.54],[0.26,0.64],[0.32,0.74],[0.42,0.80]],
+
+      // ── 3. Silverstone ────────────────────────────────────────────────────
+      // S/F → Copse → Maggotts/Becketts S-curves (left-right-left-right) →
+      // Chapel → Hangar straight → Stowe → Vale → Club → Abbey → Farm →
+      // Village → Loop → Aintree → Woodcote chicane → back to S/F
+      3: [[0.48,0.14],[0.68,0.12],[0.82,0.20],[0.88,0.30],[0.84,0.42],[0.74,0.40],
+          [0.66,0.46],[0.74,0.52],[0.84,0.54],[0.86,0.66],[0.78,0.76],[0.64,0.82],
+          [0.48,0.84],[0.32,0.78],[0.18,0.66],[0.14,0.50],[0.20,0.36],[0.28,0.24]],
+
+      // ── 4. Monza ──────────────────────────────────────────────────────────
+      // Famously fast; two long straights connected by tight chicanes.
+      // S/F → long straight → Variante del Rettifilo chicane → Curva Grande
+      // → Variante della Roggia chicane → Lesmo 1 → Lesmo 2 → Ascari chicane
+      // → long back straight → Parabolica → S/F
+      4: [[0.50,0.16],[0.70,0.14],[0.84,0.20],[0.88,0.32],[0.80,0.36],[0.74,0.30],
+          [0.70,0.38],[0.76,0.48],[0.80,0.58],[0.74,0.66],[0.68,0.72],[0.60,0.76],
+          [0.62,0.84],[0.50,0.88],[0.36,0.84],[0.22,0.72],[0.18,0.56],[0.22,0.36],
+          [0.30,0.22]],
+
+      // ── 5. Spa-Francorchamps ──────────────────────────────────────────────
+      // S/F → La Source hairpin → Eau Rouge/Raidillon uphill → Kemmel straight
+      // → Les Combes chicane → Malmedy → Rivage hairpin → Pouhon fast left
+      // → Fagnes → Stavelot → Paul Frere → Blanchimont → Bus Stop chicane → S/F
+      5: [[0.52,0.32],[0.40,0.28],[0.30,0.32],[0.22,0.40],[0.18,0.52],[0.22,0.62],
+          [0.32,0.68],[0.28,0.78],[0.36,0.86],[0.50,0.88],[0.64,0.82],[0.76,0.72],
+          [0.84,0.58],[0.82,0.44],[0.74,0.36],[0.66,0.28],[0.60,0.22],[0.56,0.28]],
+
+      // ── 6. Nürburgring GP ─────────────────────────────────────────────────
+      // S/F → Mercedes Arena → Ford Kurve → Dunlop Kehre → Michelin Kurve
+      // → NGK chicane → Coca-Cola Kurve → Veedol-S → Yokohama-S → back S/F
+      6: [[0.50,0.16],[0.68,0.14],[0.80,0.22],[0.84,0.36],[0.78,0.48],[0.66,0.52],
+          [0.62,0.62],[0.70,0.72],[0.66,0.82],[0.50,0.86],[0.34,0.82],[0.22,0.72],
+          [0.18,0.56],[0.22,0.42],[0.32,0.28],[0.38,0.18]],
+
+      // ── 7. Suzuka ─────────────────────────────────────────────────────────
+      // Figure-of-eight. S/F on main straight → First Curve → S-Curves (the
+      // famous esses) → Dunlop → Degner 1&2 → Hairpin → Spoon Curve →
+      // Back straight → 130R → Casio chicane → S/F
+      // The crossover point (overpass) is ~halfway through
+      7: [[0.50,0.86],[0.66,0.84],[0.78,0.76],[0.82,0.62],[0.78,0.48],[0.68,0.40],
+          [0.58,0.34],[0.52,0.26],[0.44,0.20],[0.34,0.16],[0.24,0.22],[0.18,0.34],
+          [0.20,0.48],[0.28,0.56],[0.38,0.50],[0.44,0.58],[0.40,0.68],[0.44,0.78]],
+
+      // ── 8. Singapore (Marina Bay) ─────────────────────────────────────────
+      // Tight street circuit. S/F → Turn 1 right → Turn 3 chicane →
+      // Anderson Bridge → Esplanade Drive → Turn 10 hairpin → Republic Blvd →
+      // Turn 13/14 chicane → St Andrew's Road → Coleman Bridge → back S/F
+      8: [[0.58,0.22],[0.72,0.20],[0.82,0.28],[0.84,0.40],[0.76,0.50],[0.64,0.52],
+          [0.56,0.60],[0.52,0.70],[0.58,0.80],[0.50,0.88],[0.36,0.84],[0.24,0.76],
+          [0.18,0.62],[0.20,0.48],[0.28,0.36],[0.36,0.26],[0.46,0.18]],
+
+      // ── 9. Interlagos (Autódromo José Carlos Pace) ────────────────────────
+      // Counter-clockwise! S/F → uphill to Senna S (T1-T2) → Curva do Sol →
+      // Descida do Lago → Ferradura hairpin → Laranjinha → Pinheirinho →
+      // Bico de Pato → Mergulho → Junção → Subida dos Boxes → S/F
+      9: [[0.52,0.20],[0.38,0.18],[0.26,0.26],[0.18,0.38],[0.20,0.52],[0.30,0.60],
+          [0.28,0.70],[0.36,0.80],[0.48,0.86],[0.62,0.82],[0.74,0.70],[0.80,0.56],
+          [0.76,0.42],[0.68,0.32],[0.64,0.22]],
+
+      // ── 10. COTA (Circuit of the Americas) ───────────────────────────────
+      // S/F → uphill T1 right-hander → T2-T9 infield esses → T10 hairpin →
+      // T12 back straight → T15 hairpin → T16-18 amphitheatre → T19-20 esses → S/F
+      10: [[0.50,0.18],[0.68,0.14],[0.82,0.22],[0.86,0.36],[0.80,0.46],[0.68,0.44],
+           [0.60,0.50],[0.52,0.44],[0.42,0.50],[0.36,0.62],[0.30,0.74],[0.40,0.84],
+           [0.56,0.88],[0.70,0.80],[0.78,0.66],[0.72,0.52],[0.62,0.36],[0.56,0.28]],
+
+      // ── 11. Red Bull Ring ─────────────────────────────────────────────────
+      // Short, punchy, lots of elevation. S/F → T1 right → T2 left uphill →
+      // back straight → T3 hairpin → T4 → T5 → T6 → T7 → T8 → T9 → S/F
+      11: [[0.50,0.20],[0.66,0.18],[0.78,0.28],[0.80,0.44],[0.70,0.56],[0.56,0.62],
+           [0.44,0.68],[0.34,0.58],[0.26,0.44],[0.30,0.30],[0.40,0.22]],
+
+      // ── 12. Paul Ricard ───────────────────────────────────────────────────
+      // Long Mistral straight dominates. S/F → Turns 1-2 → Signes long right →
+      // Mistral straight → Double droite de Signes → Beausset chicane →
+      // de la Verrerie infield → back S/F
+      12: [[0.24,0.44],[0.24,0.28],[0.36,0.16],[0.56,0.12],[0.76,0.16],[0.86,0.28],
+           [0.86,0.44],[0.76,0.56],[0.60,0.60],[0.62,0.72],[0.52,0.82],[0.38,0.80],
+           [0.28,0.68],[0.20,0.58]],
+
+      // ── 13. Hungaroring ───────────────────────────────────────────────────
+      // Very twisty, few overtake spots. S/F → T1 right → T2 left → T3-T4 →
+      // T5 hairpin → T6-T8 back section → T9-T11 → T12-T14 → S/F
+      13: [[0.50,0.14],[0.66,0.16],[0.76,0.26],[0.78,0.40],[0.68,0.50],[0.56,0.48],
+           [0.46,0.56],[0.38,0.66],[0.36,0.78],[0.46,0.86],[0.60,0.84],[0.72,0.74],
+           [0.78,0.60],[0.72,0.46],[0.62,0.34],[0.56,0.24]],
+
+      // ── 14. Baku City Circuit ─────────────────────────────────────────────
+      // Longest F1 straight (castle section). S/F long main straight →
+      // T1 right → castle wall section tight bends → T8 → back streets →
+      // T16 → seafront straight → T20 final hairpin → S/F
+      14: [[0.50,0.86],[0.50,0.60],[0.50,0.40],[0.50,0.22],[0.44,0.14],[0.34,0.10],
+           [0.26,0.14],[0.22,0.24],[0.26,0.36],[0.36,0.44],[0.42,0.52],[0.36,0.60],
+           [0.28,0.68],[0.24,0.78],[0.32,0.88],[0.42,0.90]],
+
+      // ── 15. Jeddah Corniche ───────────────────────────────────────────────
+      // Very fast street circuit. S/F → T1 right → long sequence of fast
+      // sweeps hugging the seafront → multiple chicane sections → hairpin → S/F
+      15: [[0.50,0.14],[0.66,0.12],[0.80,0.18],[0.88,0.30],[0.88,0.46],[0.80,0.58],
+           [0.68,0.60],[0.60,0.68],[0.64,0.78],[0.56,0.88],[0.42,0.86],[0.30,0.78],
+           [0.22,0.64],[0.20,0.48],[0.24,0.34],[0.34,0.22]],
+
+      // ── 16. Las Vegas Strip ───────────────────────────────────────────────
+      // Casino-to-casino. S/F → long strip straight → T1 right → T3 hairpin →
+      // back straight → T12 → T14 → T16 → final chicane → S/F
+      16: [[0.26,0.50],[0.26,0.28],[0.36,0.14],[0.56,0.12],[0.74,0.18],[0.82,0.32],
+           [0.78,0.50],[0.64,0.58],[0.64,0.72],[0.52,0.82],[0.36,0.78],[0.24,0.66]],
+
+      // ── 17. Shanghai International ───────────────────────────────────────
+      // Long sweeping T1-T2-T3 hairpin complex, long back straight.
+      // S/F → T1-T3 (tight hairpin) → T4 → T5-T6 back straight → T7 right →
+      // T8 → T9-T10 → T11-T12 hairpin → T13-T16 snail section → S/F
+      17: [[0.60,0.18],[0.76,0.18],[0.82,0.28],[0.82,0.44],[0.68,0.50],[0.52,0.50],
+           [0.44,0.60],[0.52,0.72],[0.64,0.78],[0.62,0.86],[0.48,0.88],[0.32,0.84],
+           [0.22,0.70],[0.20,0.52],[0.28,0.36],[0.38,0.22],[0.50,0.16]],
+
+      // ── 18. Sepang ────────────────────────────────────────────────────────
+      // Wide track designed for overtaking. S/F → T1-T2 tight right →
+      // T3 left → T4 hairpin → T5-T9 infield → T10 right → back straight → T14-T15 → S/F
+      18: [[0.50,0.14],[0.68,0.12],[0.80,0.22],[0.84,0.38],[0.76,0.50],[0.60,0.52],
+           [0.52,0.62],[0.44,0.74],[0.50,0.84],[0.62,0.88],[0.74,0.80],[0.80,0.66],
+           [0.76,0.50],[0.66,0.40],[0.56,0.30],[0.46,0.22]],
+
+      // ── 19. Buddh International ──────────────────────────────────────────
+      // Flowing sector 3 fast sweeps. S/F → T1 downhill right → T2-T3 →
+      // T4-T5 esses → T6-T7 → T8-T10 → T11-T12-T13 hairpin → T14-T16 sweeps → S/F
+      19: [[0.50,0.12],[0.68,0.14],[0.80,0.24],[0.84,0.40],[0.76,0.52],[0.62,0.52],
+           [0.52,0.60],[0.44,0.72],[0.40,0.84],[0.52,0.90],[0.66,0.86],[0.76,0.74],
+           [0.82,0.58],[0.76,0.40],[0.64,0.28],[0.54,0.18]],
+
+      // ── 20. Sakhir (Bahrain) ─────────────────────────────────────────────
+      // Desert circuit. S/F → T1-T2 → T3-T4 → T6 hairpin → back section →
+      // T10-T12 → T13-T14 esses → T15 hairpin → main straight → S/F
+      20: [[0.50,0.16],[0.68,0.14],[0.80,0.22],[0.84,0.36],[0.76,0.46],[0.64,0.46],
+           [0.56,0.54],[0.52,0.66],[0.58,0.78],[0.50,0.88],[0.36,0.84],[0.22,0.74],
+           [0.18,0.56],[0.24,0.40],[0.34,0.26]],
+
+      // ── 21. Yas Marina (Abu Dhabi) ────────────────────────────────────────
+      // S/F → T1-T2 → T5-T6 → through hotel section (was tunnel, now open) →
+      // T9-T10-T11-T12 marina hairpins → T14-T15 → T16-T19 → T20-T21 → S/F
+      21: [[0.50,0.14],[0.70,0.12],[0.84,0.22],[0.88,0.38],[0.80,0.50],[0.66,0.52],
+           [0.56,0.60],[0.50,0.72],[0.56,0.82],[0.66,0.88],[0.78,0.80],[0.84,0.66],
+           [0.78,0.52],[0.64,0.42],[0.54,0.32],[0.50,0.22]],
+
+      // ── 22. Albert Park (Australia) ───────────────────────────────────────
+      // Anti-clockwise street/park circuit. S/F → T1-T2 right-left →
+      // T3 → T4 right → T6-T7 chicane → T8 → T9-T10 → T11-T12 → T13-T16 → S/F
+      22: [[0.52,0.16],[0.36,0.14],[0.24,0.22],[0.18,0.36],[0.22,0.50],[0.32,0.58],
+           [0.26,0.68],[0.32,0.78],[0.44,0.86],[0.58,0.88],[0.70,0.80],[0.80,0.66],
+           [0.82,0.50],[0.76,0.36],[0.66,0.24]],
+
+      // ── 23. Gilles Villeneuve (Canada) ────────────────────────────────────
+      // Island circuit. S/F → T1 right → wall of champions chicane (T13-T14) →
+      // long back straight → hairpin → return straight → S/F
+      23: [[0.50,0.14],[0.70,0.12],[0.82,0.22],[0.84,0.38],[0.76,0.50],[0.60,0.54],
+           [0.52,0.64],[0.44,0.74],[0.38,0.84],[0.30,0.78],[0.22,0.64],[0.20,0.46],
+           [0.26,0.30],[0.36,0.18]],
+
+      // ── 24. Hermanos Rodriguez (Mexico) ──────────────────────────────────
+      // High altitude. S/F → T1 right → Peraltada T2-T4 → inner stadium →
+      // T6 → T7 → T8-T12 back section → T13 → Foro Sol stadium hairpin → S/F
+      24: [[0.50,0.14],[0.68,0.14],[0.80,0.24],[0.82,0.40],[0.70,0.50],[0.56,0.50],
+           [0.46,0.58],[0.36,0.68],[0.32,0.80],[0.44,0.88],[0.60,0.86],[0.74,0.76],
+           [0.80,0.60],[0.76,0.42],[0.64,0.28],[0.54,0.20]],
+
+      // ── 25. Autodromo Nazionale Monza (alt oval layout, similar to #4) ────
+      25: [[0.50,0.16],[0.70,0.14],[0.84,0.20],[0.88,0.32],[0.80,0.36],[0.74,0.30],
+           [0.70,0.38],[0.76,0.50],[0.80,0.62],[0.72,0.74],[0.56,0.80],[0.38,0.78],
+           [0.24,0.68],[0.18,0.52],[0.22,0.36],[0.32,0.22]],
+
+      // ── 26. Mugello ───────────────────────────────────────────────────────
+      // Flowing Tuscan hills circuit. S/F → T1 San Donato right → T2 →
+      // Arrabbiata 1&2 fast right-handers → T7 Scarperia → T8-T9 Palagio →
+      // T10-T11 Correntaio → T12 Bucine → T13 Casanova-Savelli → T15 Borgo → S/F
+      26: [[0.50,0.12],[0.68,0.14],[0.80,0.24],[0.86,0.40],[0.80,0.54],[0.66,0.56],
+           [0.54,0.48],[0.44,0.56],[0.36,0.68],[0.32,0.80],[0.42,0.88],[0.58,0.90],
+           [0.72,0.82],[0.80,0.68],[0.78,0.50]]
+    };
+
+    function getCircuitPoints(trackId) {
+      return CIRCUIT_LAYOUTS[trackId] || [[0.50,0.10],[0.80,0.20],[0.90,0.50],[0.80,0.80],[0.50,0.90],[0.20,0.80],[0.10,0.50],[0.20,0.20]];
+    }
+
+    function buildSplinePoints(raw, steps) {
+      const pts = raw.map(p => ({ x: p[0], y: p[1] }));
+      const n = pts.length;
+      const result = [];
+      for (let i = 0; i < n; i++) {
+        const p0 = pts[(i - 1 + n) % n];
+        const p1 = pts[i];
+        const p2 = pts[(i + 1) % n];
+        const p3 = pts[(i + 2) % n];
+        for (let t = 0; t < steps; t++) {
+          const s = t / steps;
+          const s2 = s * s, s3 = s2 * s;
+          const x = 0.5 * ((2*p1.x) + (-p0.x+p2.x)*s + (2*p0.x-5*p1.x+4*p2.x-p3.x)*s2 + (-p0.x+3*p1.x-3*p2.x+p3.x)*s3);
+          const y = 0.5 * ((2*p1.y) + (-p0.y+p2.y)*s + (2*p0.y-5*p1.y+4*p2.y-p3.y)*s2 + (-p0.y+3*p1.y-3*p2.y+p3.y)*s3);
+          result.push({ x, y });
+        }
+      }
+      return result;
+    }
+
+    const _splineCache = {};
+    function getSpline(trackId) {
+      if (!_splineCache[trackId]) _splineCache[trackId] = buildSplinePoints(getCircuitPoints(trackId), 20);
+      return _splineCache[trackId];
+    }
+
+    function progressToXY(spline, progress) {
+      const idx = ((progress % 1 + 1) % 1) * spline.length;
+      const i0 = Math.floor(idx) % spline.length;
+      const i1 = (i0 + 1) % spline.length;
+      const frac = idx - Math.floor(idx);
+      return { x: spline[i0].x + (spline[i1].x - spline[i0].x) * frac, y: spline[i0].y + (spline[i1].y - spline[i0].y) * frac };
+    }
+
+    function initDriverProgress() {
+      gameState.driverProgress = {};
+      gameState.driverProgress._prev = {};
+      gameState.drivers.forEach(driver => {
+        gameState.driverProgress[driver.id] = 0;
+        gameState.driverProgress._prev[driver.id] = 0;
+      });
+      // Invincibility: no incidents for the first ~1 simulated lap worth of real time
+      gameState.invincibilityUntil = performance.now() + 8000;
+    }
+
+    function drawCircuit(canvasId, highlightDrivers) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const W = canvas.width  = canvas.offsetWidth  || 400;
+      const H = canvas.height = canvas.offsetHeight || 300;
+      const ctx = canvas.getContext('2d');
+      const trackId = gameState.selectedTrack ? gameState.selectedTrack.id : 1;
+      const spline = getSpline(trackId);
+      const PAD = 28;
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = '#0e1117';
+      ctx.fillRect(0, 0, W, H);
+
+      function toCanvas(nx, ny) {
+        return { x: PAD + nx * (W - PAD*2), y: PAD + ny * (H - PAD*2) };
+      }
+
+      // Track outer glow
+      ctx.save();
+      ctx.beginPath();
+      const first = toCanvas(spline[0].x, spline[0].y);
+      ctx.moveTo(first.x, first.y);
+      for (let i = 1; i < spline.length; i++) { const p = toCanvas(spline[i].x, spline[i].y); ctx.lineTo(p.x, p.y); }
+      ctx.closePath();
+      ctx.strokeStyle = 'rgba(102,252,241,0.10)';
+      ctx.lineWidth = 16;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.restore();
+
+      // Track surface
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(first.x, first.y);
+      for (let i = 1; i < spline.length; i++) { const p = toCanvas(spline[i].x, spline[i].y); ctx.lineTo(p.x, p.y); }
+      ctx.closePath();
+      ctx.strokeStyle = '#2c3540';
+      ctx.lineWidth = 9;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.restore();
+
+      // Centre dashes
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(first.x, first.y);
+      for (let i = 1; i < spline.length; i++) { const p = toCanvas(spline[i].x, spline[i].y); ctx.lineTo(p.x, p.y); }
+      ctx.closePath();
+      ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([6, 10]);
+      ctx.stroke();
+      ctx.restore();
+
+      // Start/finish line
+      const sfP2 = toCanvas(spline[1].x, spline[1].y);
+      const ang = Math.atan2(sfP2.y - first.y, sfP2.x - first.x) + Math.PI / 2;
+      ctx.save();
+      ctx.translate(first.x, first.y);
+      ctx.rotate(ang);
+      for (let k = 0; k < 6; k++) {
+        ctx.fillStyle = k % 2 === 0 ? '#fff' : '#111';
+        ctx.fillRect(-7, k * 3 - 9, 14, 3);
+      }
+      ctx.restore();
+
+      // Car dots
+      if (highlightDrivers && gameState.driverProgress) {
+        const sorted = [...gameState.drivers].filter(d => !d.isDNF).sort((a, b) => a.position - b.position);
+        sorted.forEach((driver, posIdx) => {
+          const prog = gameState.driverProgress[driver.id] || 0;
+          const pt = progressToXY(spline, prog);
+          const cp = toCanvas(pt.x, pt.y);
+          const isLeader = posIdx === 0;
+          const r = isLeader ? 5 : 3.5;
+
+          ctx.save();
+          const grd = ctx.createRadialGradient(cp.x, cp.y, 0, cp.x, cp.y, r * 2.5);
+          grd.addColorStop(0, driver.color + 'cc');
+          grd.addColorStop(1, driver.color + '00');
+          ctx.fillStyle = grd;
+          ctx.beginPath();
+          ctx.arc(cp.x, cp.y, r * 2.5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          ctx.beginPath();
+          ctx.arc(cp.x, cp.y, r, 0, Math.PI * 2);
+          ctx.fillStyle = driver.color;
+          ctx.fill();
+          ctx.strokeStyle = isLeader ? '#ffffff' : 'rgba(255,255,255,0.4)';
+          ctx.lineWidth = isLeader ? 1.5 : 1;
+          ctx.stroke();
+        });
+      }
+
+      // Track name
+      ctx.fillStyle = 'rgba(102,252,241,0.45)';
+      ctx.font = 'bold 9px monospace';
+      ctx.fillText(gameState.selectedTrack ? gameState.selectedTrack.name.toUpperCase() : '', 8, H - 8);
+    }
+
+    let _animFrame = null;
+    function startCanvasAnimation() {
+      if (_animFrame) cancelAnimationFrame(_animFrame);
+      gameState.leaderLap = 0;
+      let finished = false;
+      function tick() {
+        if (finished) return;
+        if (!gameState.driverProgress) { _animFrame = requestAnimationFrame(tick); return; }
+        if (!gameState.isPaused && gameState.screen === 'race') {
+          const leader = gameState.drivers.filter(d => !d.isDNF).sort((a, b) => a.position - b.position)[0];
+
+          gameState.drivers.forEach(driver => {
+            if (driver.isDNF) return;
+            const prev = gameState.driverProgress._prev[driver.id] || 0;
+
+            // Speed on canvas driven by pace score so faster cars visually pull ahead
+            const pace = driverPace(driver);
+            const baseSpeed = 0.00028 + pace * 0.00015; // range ~0.00028–0.00043
+            const speed = baseSpeed * gameState.simSpeed;
+
+            let next = prev + speed + (Math.random() - 0.5) * 0.00004;
+
+            if (next >= 1.0) {
+              next = next % 1.0;
+              driver.lapsCompleted++;
+              if (leader && driver.id === leader.id) {
+                gameState.leaderLap = driver.lapsCompleted;
+                document.getElementById('current-lap-display').textContent =
+                  `${gameState.leaderLap} / ${gameState.lapCount}`;
+                if (gameState.leaderLap >= gameState.lapCount) {
+                  finished = true;
+                  cancelAnimationFrame(_animFrame);
+                  _animFrame = null;
+                  if (gameState._raceInterval) { clearInterval(gameState._raceInterval); gameState._raceInterval = null; }
+                  finishRace();
+                  return;
+                }
+              }
+            }
+
+            gameState.driverProgress[driver.id] = next;
+            gameState.driverProgress._prev[driver.id] = next;
+          });
+        }
+        drawCircuit('race-canvas', true);
+        _animFrame = requestAnimationFrame(tick);
+      }
+      tick();
+    }
+
+    let _qualAnimFrame = null;
+    function startQualifyingCanvasAnimation() {
+      if (_qualAnimFrame) cancelAnimationFrame(_qualAnimFrame);
+      function tick() {
+        if (!gameState.driverProgress) { _qualAnimFrame = requestAnimationFrame(tick); return; }
+        if (!gameState.isPaused) {
+          gameState.drivers.forEach(driver => {
+            const speed = 0.00038 * gameState.simSpeed + (Math.random() - 0.5) * 0.00006;
+            gameState.driverProgress[driver.id] = ((gameState.driverProgress[driver.id] || 0) + speed) % 1;
+          });
+        }
+        drawCircuit('qualifying-canvas', true);
+        _qualAnimFrame = requestAnimationFrame(tick);
+      }
+      tick();
+    }
+
+    window.addEventListener('load', initGame);
+  </script>
+
+</body>
+</html>
